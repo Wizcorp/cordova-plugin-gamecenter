@@ -1,46 +1,40 @@
 (function(window) {
   var GameCenter = function() {
-    if(!localStorage.getItem('GameCenterLoggedin')) {
-      cordova.exec("GameCenterPlugin.authenticateLocalPlayer");
-    }
-  };
-
+    this.onshow = null;
+    this.onhide = null;
+  }
+ 
   GameCenter.prototype = {
-    authenticate: function() {
-      cordova.exec("GameCenterPlugin.authenticateLocalPlayer");
+    authenticate: function(s, f) {
+        cordova.exec(s, f, "GameCenterPlugin", "authenticateLocalPlayer", []);
     },
 
     showLeaderboard: function(category) {
-      cordova.exec("GameCenterPlugin.showLeaderboard", category);
+        cordova.exec(null, null, "GameCenterPlugin", "showLeaderboard", [category]);
     },
 
-    reportScore: function(category, score) {
-      cordova.exec("GameCenterPlugin.reportScore", category, score);
+    reportScore: function(category, score, s, f) {
+        cordova.exec(s, f, "GameCenterPlugin", "reportScore", [category, score]);
     },
 
     showAchievements: function() {
-      cordova.exec("GameCenterPlugin.showAchievements");
+        cordova.exec(null, null, "GameCenterPlugin", "showAchievements", []);
     },
 
-    getAchievement: function(category) {
-      cordova.exec("GameCenterPlugin.reportAchievementIdentifier", category, 100);
+    reportAchievement: function(category, s, f) {
+        cordova.exec(s, f, "GameCenterPlugin", "reportAchievementIdentifier", [category, 100]);
     },
+ 
+    _viewDidShow: function() {
+        if (typeof this.onshow === 'function') { this.onshow(); }
+    },
+ 
+    _viewDidHide: function() {
+        if (typeof this.onhide === 'function') { this.onhide(); }
+    }
   };
-
-  GameCenter._userDidLogin = function() {
-    localStorage.setItem('GameCenterLoggedin', 'true');
-  };
-
-  GameCenter._userDidSubmitScore = function() {
-    alert('score submitted');
-  };
-
-  GameCenter._userDidFailSubmitScore = function() {
-    alert('score error');
-  };
-
+ 
   cordova.addConstructor(function() {
-    if(!window.plugins) window.plugins = {};
-    window.plugins.gamecenter = new GameCenter();
+    window.gameCenter = new GameCenter();
   });
 })(window);
