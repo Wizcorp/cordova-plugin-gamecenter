@@ -11,30 +11,26 @@
 
 @implementation GameCenterPlugin
 
-- (void)authenticateLocalPlayer:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)authenticateLocalPlayer:(CDVInvokedUrlCommand*)command
 {
-    NSString *callbackId = [arguments objectAtIndex:0];
-    
     [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error) {
         if (error == nil)
         {
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-            [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
+            [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
         }
         else
         {
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
-            [self writeJavascript: [pluginResult toErrorCallbackString:callbackId]];
+            [self writeJavascript: [pluginResult toErrorCallbackString:command.callbackId]];
         }
     }];
 }
 
-- (void)reportScore:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)reportScore:(CDVInvokedUrlCommand*)command
 {
-    NSString *callbackId = [arguments objectAtIndex:0];
-
-    NSString *category = (NSString*) [arguments objectAtIndex:1];
-    int64_t score = [[arguments objectAtIndex:2] integerValue];
+    NSString *category = (NSString*) [command.arguments objectAtIndex:0];
+    int64_t score = [[command.arguments objectAtIndex:1] integerValue];
 
     GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:category] autorelease];
     scoreReporter.value = score;
@@ -43,21 +39,21 @@
         if (!error)
         {
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-            [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
+            [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
         } else {
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
-            [self writeJavascript: [pluginResult toErrorCallbackString:callbackId]];
+            [self writeJavascript: [pluginResult toErrorCallbackString:command.callbackId]];
         }
     }];
 }
 
-- (void)showLeaderboard:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)showLeaderboard:(CDVInvokedUrlCommand*)command
 {
     GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
     if (leaderboardController != nil)
     {
         leaderboardController.leaderboardDelegate = self;
-        leaderboardController.category = (NSString*) [arguments objectAtIndex:1];
+        leaderboardController.category = (NSString*) [command.arguments objectAtIndex:0];
         CDVViewController* cont = (CDVViewController*)[super viewController];
         [cont presentViewController:leaderboardController animated:YES completion:^{
             [self.webView stringByEvaluatingJavaScriptFromString:@"window.gameCenter._viewDidShow()"];
@@ -65,7 +61,7 @@
     }
 }
 
-- (void)showAchievements:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)showAchievements:(CDVInvokedUrlCommand*)command
 {
     GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
     if (achievements != nil)
@@ -93,12 +89,10 @@
     [self.webView stringByEvaluatingJavaScriptFromString:@"window.gameCenter._viewDidHide()"];
 }
 
-- (void)reportAchievementIdentifier:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)reportAchievementIdentifier:(CDVInvokedUrlCommand*)command
 {
-    NSString *callbackId = [arguments objectAtIndex:0];
-    
-    NSString *identifier = (NSString*) [arguments objectAtIndex:1];
-    float percent = [[arguments objectAtIndex:2] floatValue];
+    NSString *identifier = (NSString*) [command.arguments objectAtIndex:0];
+    float percent = [[command.arguments objectAtIndex:1] floatValue];
 
     GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier: identifier] autorelease];
     if (achievement)
@@ -108,15 +102,15 @@
             if (!error)
             {
                 CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-                [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
+                [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
             } else {
                 CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
-                [self writeJavascript: [pluginResult toErrorCallbackString:callbackId]];
+                [self writeJavascript: [pluginResult toErrorCallbackString:command.callbackId]];
             }
         }];
     } else {
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Failed to alloc GKAchievement"];
-        [self writeJavascript: [pluginResult toErrorCallbackString:callbackId]];
+        [self writeJavascript: [pluginResult toErrorCallbackString:command.callbackId]];
     }
 }
 
