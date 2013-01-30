@@ -16,8 +16,8 @@ Using this plugin requires [Cordova iOS](https://github.com/apache/incubator-cor
 
     <script type="text/javascript" src="/js/plugins/GameCenterPlugin.js"></script>
 
-4. Add new entry with key `GameCenterPlugin` and value `GameCenterPlugin` to `Plugins` in `Cordova.plist/Cordova.plist`
-5. Add new entry value `service.gc.apple.com` and `service-sandbox.gc.apple.com` to `ExternalHosts` in `Cordova.plist/Cordova.plist`
+4. Add new entry with key `GameCenterPlugin` and value `GameCenterPlugin` to `plugins` in `config.xml`
+5. Add the GameKit.framework to your project.
 
 ## JAVASCRIPT INTERFACE ##
 
@@ -45,7 +45,7 @@ Using this plugin requires [Cordova iOS](https://github.com/apache/incubator-cor
     // Show achievements by modal view
     window.gameCenter.showAchievements();
 
-## Licence ##
+## License ##
 
 The MIT License
 
