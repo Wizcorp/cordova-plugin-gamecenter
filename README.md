@@ -11,13 +11,14 @@ Using this plugin requires [Cordova iOS](https://github.com/apache/incubator-cor
 
 0. git clone this to `GameCenter`
 1. Make sure your Xcode project has been [updated for Cordova](https://github.com/apache/incubator-cordova-ios/blob/master/guides/Cordova%20Upgrade%20Guide.md)
-2. Drag and drop the `GameCenter` folder from Finder to your Plugins folder in XCode, using "Create groups for any added folders"
-3. Add the .js files to your `www` folder on disk, and add reference(s) to the .js files using <script> tags in your html file(s)
+2. Drag and drop the `GameCenter` folder from Finder to your Plugins folder in XCode, using "Create groups for any added folders".
+3. Verify that any added source files (added to the project in step 2) are included in the build target that requires access to the plugin.
+4. Add the .js files to your `www` folder on disk, and add reference(s) to the .js files using <script> tags in your html file(s)
 
     <script type="text/javascript" src="/js/plugins/GameCenterPlugin.js"></script>
 
-4. Add new entry with key `GameCenterPlugin` and value `GameCenterPlugin` to `plugins` in `config.xml`
-5. Add the GameKit.framework to your project.
+5. Add new entry with key `GameCenterPlugin` and value `GameCenterPlugin` to `plugins` in `config.xml`
+6. Add the GameKit.framework to your project.
 
 ## JAVASCRIPT INTERFACE ##
 
