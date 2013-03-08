@@ -9,7 +9,20 @@
 #import "GameCenterPlugin.h"
 #import <Cordova/CDVViewController.h>
 
+@interface GameCenterPlugin ()
+@property (nonatomic, retain) GKLeaderboardViewController *leaderboardController;
+@property (nonatomic, retain) GKAchievementViewController *achievementsController;
+@end
+
 @implementation GameCenterPlugin
+
+- (void)dealloc
+{
+    self.leaderboardController = nil;
+    self.achievementsController = nil;
+    
+    [super dealloc];
+}
 
 - (void)authenticateLocalPlayer:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
 {
@@ -53,30 +66,29 @@
 
 - (void)showLeaderboard:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
 {
-    GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
-    if (leaderboardController != nil)
-    {
-        leaderboardController.leaderboardDelegate = self;
-        leaderboardController.category = (NSString*) [arguments objectAtIndex:1];
-        CDVViewController* cont = (CDVViewController*)[super viewController];
-        [cont presentViewController:leaderboardController animated:YES completion:^{
-            [self.webView stringByEvaluatingJavaScriptFromString:@"window.gameCenter._viewDidShow()"];
-        }];
+    if ( self.leaderboardController == nil ) {
+        self.leaderboardController = [[GKLeaderboardViewController alloc] init];
+        self.leaderboardController.leaderboardDelegate = self;
     }
+
+    self.leaderboardController.category = (NSString*) [arguments objectAtIndex:1];
+    CDVViewController* cont = (CDVViewController*)[super viewController];
+    [cont presentViewController:self.leaderboardController animated:YES completion:^{
+        [self.webView stringByEvaluatingJavaScriptFromString:@"window.gameCenter._viewDidShow()"];
+    }];
 }
 
 - (void)showAchievements:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
 {
-    GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
-    if (achievements != nil)
-    {
-        achievements.achievementDelegate = self;
-        CDVViewController* cont = (CDVViewController*)[super viewController];
-        [cont presentViewController:achievements animated:YES completion:^{
-            [self.webView stringByEvaluatingJavaScriptFromString:@"window.gameCenter._viewDidShow()"];
-        }];
+    if ( self.achievementsController == nil ) {
+        self.achievementsController = [[GKAchievementViewController alloc] init];
+        self.achievementsController.achievementDelegate = self;
     }
-    [achievements release];
+
+    CDVViewController* cont = (CDVViewController*)[super viewController];
+    [cont presentViewController:self.achievementsController animated:YES completion:^{
+        [self.webView stringByEvaluatingJavaScriptFromString:@"window.gameCenter._viewDidShow()"];
+    }];
 }
 
 - (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
