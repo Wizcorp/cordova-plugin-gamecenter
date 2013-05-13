@@ -42,8 +42,8 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		F626123316BA0A5800080430 /* GameCenterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC9FA016B77DC900713833 /* GameCenterPlugin.m */; };
-		F6EC9FA816B77DF700713833 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EC9FA716B77DF700713833 /* GameKit.framework */; };
+		F6AB2B371740CFF8003C3628 /* GameCenterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AB2B361740CFF8003C3628 /* GameCenterPlugin.m */; };
+		F6AB2B391740D010003C3628 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AB2B381740D010003C3628 /* GameKit.framework */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
 
@@ -105,12 +105,9 @@
 		32CA4F630368D1EE00C91783 /* exampleGameCenter-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "exampleGameCenter-Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* exampleGameCenter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "exampleGameCenter-Info.plist"; path = "../exampleGameCenter-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		F6EC9F9E16B77DC900713833 /* GameCenterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenterPlugin.h; path = ../../../GameCenterPlugin.h; sourceTree = "<group>"; };
-		F6EC9F9F16B77DC900713833 /* GameCenterPlugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = GameCenterPlugin.js; path = ../../../GameCenterPlugin.js; sourceTree = "<group>"; };
-		F6EC9FA016B77DC900713833 /* GameCenterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenterPlugin.m; path = ../../../GameCenterPlugin.m; sourceTree = "<group>"; };
-		F6EC9FA116B77DC900713833 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
-		F6EC9FA216B77DC900713833 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		F6EC9FA716B77DF700713833 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		F6AB2B351740CFF8003C3628 /* GameCenterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenterPlugin.h; path = ../../../../GameCenterPlugin.h; sourceTree = "<group>"; };
+		F6AB2B361740CFF8003C3628 /* GameCenterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenterPlugin.m; path = ../../../../GameCenterPlugin.m; sourceTree = "<group>"; };
+		F6AB2B381740D010003C3628 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = exampleGameCenter/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6EC9FA816B77DF700713833 /* GameKit.framework in Frameworks */,
+				F6AB2B391740D010003C3628 /* GameKit.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -223,7 +220,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F6EC9FA716B77DF700713833 /* GameKit.framework */,
+				F6AB2B381740D010003C3628 /* GameKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -253,7 +250,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				F6EC9F9D16B77DB800713833 /* gameCenter */,
+				F6AB2B351740CFF8003C3628 /* GameCenterPlugin.h */,
+				F6AB2B361740CFF8003C3628 /* GameCenterPlugin.m */,
 			);
 			name = Plugins;
 			path = exampleGameCenter/Plugins;
@@ -299,18 +297,6 @@
 			path = se.lproj;
 			sourceTree = "<group>";
 		};
-		F6EC9F9D16B77DB800713833 /* gameCenter */ = {
-			isa = PBXGroup;
-			children = (
-				F6EC9F9E16B77DC900713833 /* GameCenterPlugin.h */,
-				F6EC9F9F16B77DC900713833 /* GameCenterPlugin.js */,
-				F6EC9FA016B77DC900713833 /* GameCenterPlugin.m */,
-				F6EC9FA116B77DC900713833 /* LICENSE */,
-				F6EC9FA216B77DC900713833 /* README.md */,
-			);
-			name = gameCenter;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,7 +304,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "exampleGameCenter" */;
 			buildPhases = (
-				F626122E16BA049200080430 /* ShellScript */,
+				F6AB2B3A1740D2B9003C3628 /* Copy content to www folder */,
 				304B58A110DAC018002A0835 /* Touch www folder */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -424,18 +410,19 @@
 			shellPath = /bin/sh;
 			shellScript = "touch -cm ${PROJECT_DIR}/www";
 		};
-		F626122E16BA049200080430 /* ShellScript */ = {
+		F6AB2B3A1740D2B9003C3628 /* Copy content to www folder */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Copy content to www folder";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p $PROJECT_DIR/www\ncp $PROJECT_DIR/../*.js $PROJECT_DIR/www";
+			shellScript = "cp -r $PROJECT_DIR/../www $PROJECT_DIR\ncp -r $PROJECT_DIR/../../GameCenterPlugin.js $PROJECT_DIR/www";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -447,7 +434,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				F626123316BA0A5800080430 /* GameCenterPlugin.m in Sources */,
+				F6AB2B371740CFF8003C3628 /* GameCenterPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
