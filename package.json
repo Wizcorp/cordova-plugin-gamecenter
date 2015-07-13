@@ -1,6 +1,6 @@
 {
   "name": "phonegap-plugin-gameCenter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "This plugin allows interaction with iOS Game Center.",
   "cordova": {
     "id": "phonegap-plugin-gameCenter",
