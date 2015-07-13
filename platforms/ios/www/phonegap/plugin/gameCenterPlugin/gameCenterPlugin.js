@@ -1,4 +1,4 @@
-cordova.define("jp.wizcorp.phonegap.plugin.gameCenterPlugin.gameCenterPlugin", function(require, exports, module) {
+cordova.define("phonegap-plugin-gameCenter.gameCenterPlugin", function(require, exports, module) {
     var GameCenter = function() {
         this.onshow = null;
         this.onhide = null;
