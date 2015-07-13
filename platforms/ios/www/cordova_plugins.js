@@ -1,8 +1,8 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "phonegap/plugin/gameCenterPlugin/gameCenterPlugin.js",
-        "id": "phonegap-plugin-gameCenter.gameCenterPlugin",
+        "file": "plugins/cordova-plugin-gamecenter/www/GameCenter.js",
+        "id": "cordova-plugin-gamecenter.GameCenter",
         "clobbers": [
             "window.gameCenter"
         ]
