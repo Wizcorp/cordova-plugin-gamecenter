@@ -1,14 +1,14 @@
-phonegap-plugin-gameCenter
+cordova-plugin-gamecenter
 ===========================
 
-* A plugin to integrate Game Center in a Phonegap iOS app/game.
+* A plugin to integrate Game Center in a Cordova iOS app/game.
 * Please read [Game Center Programming Guide](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html) and the [iTunes Connect Developer Guide](https://itunesconnect.apple.com/docs/iTunesConnect_DeveloperGuide.pdf).
 
 ## Install ##
 
 With Cordova CLI: 
 
-`cordova plugin add https://github.com/Wizcorp/phonegap-plugin-gameCenter`
+`cordova plugin add https://github.com/Wizcorp/cordova-plugin-gamecenter`
 
 ## Sample Code ##
 

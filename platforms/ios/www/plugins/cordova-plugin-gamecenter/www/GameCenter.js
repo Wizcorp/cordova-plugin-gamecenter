@@ -1,5 +1,4 @@
-cordova.define("phonegap-plugin-gameCenter.gameCenterPlugin", function(require, exports, module) {
-    var GameCenter = function() {
+cordova.define("cordova-plugin-gamecenter.GameCenter", function(require, exports, module) {     var GameCenter = function() {
         this.onshow = null;
         this.onhide = null;
     }
@@ -37,4 +36,5 @@ cordova.define("phonegap-plugin-gameCenter.gameCenterPlugin", function(require, 
     
     var gameCenter = new GameCenter();
     module.exports = gameCenter;
+
 });

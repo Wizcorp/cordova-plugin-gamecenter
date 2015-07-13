@@ -1,16 +1,16 @@
 {
-  "name": "phonegap-plugin-gameCenter",
+  "name": "cordova-plugin-gamecenter",
   "version": "0.3.0",
   "description": "This plugin allows interaction with iOS Game Center.",
   "cordova": {
-    "id": "phonegap-plugin-gameCenter",
+    "id": "cordova-plugin-gamecenter",
     "platforms": [
       "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wizcorp/phonegap-plugin-gameCenter.git"
+    "url": "git+https://github.com/Wizcorp/cordova-plugin-gamecenter.git"
   },
   "keywords": [
     "wizcorp",
@@ -30,7 +30,7 @@
   "author": "Wizcorp Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wizcorp/phonegap-plugin-gameCenter/issues"
+    "url": "https://github.com/Wizcorp/cordova-plugin-gamecenter/issues"
   },
-  "homepage": "https://github.com/Wizcorp/phonegap-plugin-gameCenter#readme"
+  "homepage": "https://github.com/Wizcorp/cordova-plugin-gamecenter#readme"
 }
