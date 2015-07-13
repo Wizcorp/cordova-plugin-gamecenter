@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-gamecenter",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "This plugin allows interaction with iOS Game Center.",
   "cordova": {
     "id": "cordova-plugin-gamecenter",
